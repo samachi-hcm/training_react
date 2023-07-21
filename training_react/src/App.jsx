@@ -1,38 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Link as MuiLink, Box } from '@mui/material';
+import { Home } from './Home.jsx';
+import { Page1 } from './Page1.jsx';
+import { Page2 } from './Page2.jsx';
+import { Page3 } from './Page3.jsx';
+import { Chinpo } from './chinpo.jsx';
+import { MyLineChart as Chart } from './MyLineChart.jsx';
+import { Unko } from './boko.jsx';
 
-function App() {
-  const [count, setCount] = useState(0)
-  const [first, setfirst] = useState(1)
+const Header = () => (
+  <Box sx={{ flexGrow: 1 }}>
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          App Name
+        </Typography>
+        <MuiLink color="inherit" underline="none" href="/">Home</MuiLink>
+        <MuiLink color="inherit" underline="none" href="/page1">Page1</MuiLink>
+        <MuiLink color="inherit" underline="none" href="/page2">Page2</MuiLink>
+        <MuiLink color="inherit" underline="none" href="/page3">Page3</MuiLink>
+        <MuiLink color="inherit" underline="none" href="/chinpo">chinpo</MuiLink>
+        <MuiLink color="inherit" underline="none" href="/chart">chart</MuiLink>
+        <MuiLink color="inherit" underline="none" href="/unko">unko</MuiLink>
+      </Toolbar>
+    </AppBar>
+  </Box>
+);
+
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 2)}>
-          count is {count}
-        </button>
-        <button onClick={() => setfirst((first) => first * 2)}>
-          count is {first}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<><Header /><Home /></>} />
+        <Route path="/page1" element={<><Header /><Page1 /></>} />
+        <Route path="/page2" element={<><Header /><Page2 /></>} />
+        <Route path="/page3" element={<><Header /><Page3 /></>} />
+        <Route path="/chinpo" element={<Chinpo />} />
+        <Route path="/chart" element={<Chart />} />
+        <Route path="/unko" element={<Unko />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
