@@ -1,7 +1,20 @@
 import './App.css';
 import { Grid, Paper, Typography } from '@mui/material';
+import React from "react";
+import { useState } from "react";
 
 export function Home () {
+  const [input, setInput] = useState("")
+  const [first, setFirst] = useState([])
+
+  const insertValue = () => {
+    console.log(input);
+    setFirst([...first, input]);
+    setInput(""); 
+  }
+
+
+
   return (
     <div 
       sx={{ 
@@ -19,7 +32,11 @@ export function Home () {
             }}
           >
             <Typography variant="h5" component="h2">
-             chinpo
+            <input value={input} onChange = {(e) => setInput(e.target.value)}></input>
+            <button onClick = {() => insertValue() }>送信</button>
+            {first.map((item, index) => (
+                <p key={index}>{item}</p>
+              ))}
             </Typography>
           </Paper>
         </Grid>
