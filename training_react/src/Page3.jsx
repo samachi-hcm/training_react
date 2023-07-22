@@ -1,18 +1,18 @@
-import { Typography, Container, Box } from '@mui/material';
+import { Typography, Container, Box } from "@mui/material";
 
 export function Page3() {
   return (
-    <Container 
+    <Container
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-        bgcolor: 'background.default'
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        bgcolor: "background.default",
       }}
     >
-      <Box 
+      <Box
         sx={{
           mb: 4, // margin-bottom: 4
         }}
@@ -29,5 +29,3 @@ export function Page3() {
     </Container>
   );
 }
-
-  

@@ -1,20 +1,20 @@
-import React from 'react';
-import { Typography, Button, Container, Box } from '@mui/material';
+import React from "react";
+import { Typography, Button, Container, Box } from "@mui/material";
 
 export function Page1() {
   return (
-    <Container 
+    <Container
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-        bgcolor: 'background.default'
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        bgcolor: "background.default",
       }}
     >
-      <Typography 
-        variant="h2" 
+      <Typography
+        variant="h2"
         component="h1"
         sx={{
           margin: 4,
@@ -26,9 +26,9 @@ export function Page1() {
         <Button variant="contained" color="primary">
           Primary Button
         </Button>
-        <Button 
-          variant="contained" 
-          color="secondary" 
+        <Button
+          variant="contained"
+          color="secondary"
           sx={{ ml: 2 }} // margin left 2
         >
           Secondary Button

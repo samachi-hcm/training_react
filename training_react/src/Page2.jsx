@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
-import { Typography, Box, Button, Container, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import MenuIcon from '@mui/icons-material/Menu';
+import React, { useState } from "react";
+import {
+  Typography,
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export function Page2() {
   const [open, setOpen] = useState(false);
@@ -25,10 +35,7 @@ export function Page2() {
         >
           <MenuIcon />
         </IconButton>
-        <Drawer
-          open={open}
-          onClose={handleDrawerClose}
-        >
+        <Drawer open={open} onClose={handleDrawerClose}>
           <List>
             <ListItem button onClick={handleDrawerClose}>
               <ListItemText primary="メニュー1" />
@@ -53,4 +60,4 @@ export function Page2() {
       </Box>
     </Container>
   );
-};
+}
