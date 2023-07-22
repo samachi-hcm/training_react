@@ -5,15 +5,30 @@ import { useState } from "react";
 
 export function Home() {
   const [input, setInput] = useState("")
-  const [first, setFirst] = useState([])
-  const [select, setSelect] = useState("#FF9B9B")
+  const [tasks, setTasks] = useState([])
+  const [gal, setGal] = useState('yabai');
 
+  const galWord = (e) => {
+    setGal(e.target.value);
+  };
   const insertValue = () => {
+　　
     console.log(input);
-    console.log(select)
-    setFirst([...first, { value: input , important: select}]);
-    setInput("");
+    setTasks(prevTasks => [...prevTasks, {task: input, gal: gal}]);
+    setInput("");   
+  };
+
+  const getColor = (level) => {
+    switch(level) {
+      case 'yabai':
+        return "#ff69b4";
+      case 'yabakunai':
+        return "#008000";
+      default:
+        return "#000000";
+    }
   }
+  
 
   return (
     <div
@@ -32,17 +47,16 @@ export function Home() {
             }}
           >
             <Typography variant="h5" component="h2">
-              <input value={input} onChange={(e) => setInput(e.target.value)}></input>
-              <select onChange={(e) => setSelect(e.target.value)}>
-                <option value="#FF9B9B">やばい</option>
-                <option value="#FFFEC4">やばくない</option>
-              </select>
-              <button onClick={() => insertValue()} style={{marginBottom:"2vh"}}>送信</button>
-              {first.map((item, index) => (
-                <div key={index} style={{backgroundColor:item.important , border:"solid 1px gray", marginLeft:"40vh", marginRight:"40vh"}}>
-                  <p key={index} style={{ display: "inline-block" }}>{item.value}</p>
-                </div>
+            <input value={input} onChange = {(e) => setInput(e.target.value)}></input>
+            <select　onChange = {(e) => galWord(e)}>
+              <option value="yabai">やばい</option>
+              <option value="yabakunai">やばくない</option>
+            </select>
+            <button onClick = {() => insertValue() }>送信</button>
+            {tasks.map((item, index) => (
+                <div style={{ backgroundColor: getColor(item.gal), height: '100px', width: "100%"}} key={index}>{item.task}</div>
               ))}
+              
             </Typography>
           </Paper>
         </Grid>
@@ -50,3 +64,4 @@ export function Home() {
     </div>
   );
 };
+
